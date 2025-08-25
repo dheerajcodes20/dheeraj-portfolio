@@ -65,27 +65,6 @@
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
   
-  .skill-card {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease, background-color 0.3s ease;
-  }
-  
-  .skill-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .project-card {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease, background-color 0.3s ease;
-  }
-  
-  .project-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Smooth scrolling for the entire page */

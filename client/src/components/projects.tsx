@@ -31,14 +31,14 @@ export default function Projects() {
     <section id="projects" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-12">
-          Featured <span className="text-accent">Projects</span>
+          Featured <span className="text-secondary">Projects</span>
         </h2>
         
         <div className="grid lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card
               key={project.title}
-              className="project-card bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-all duration-300 group overflow-hidden"
+              className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-all duration-300 group overflow-hidden"
               data-testid={`card-project-${index}`}
             >
               <div className="aspect-video relative overflow-hidden">
@@ -49,22 +49,23 @@ export default function Projects() {
                   data-testid={`img-project-${index}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4">
-                  <Badge className="bg-primary/80 text-white px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute top-4 left-4">
+                  <Badge className="bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
                     {project.category}
                   </Badge>
                 </div>
               </div>
               
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
-                <p className="text-white/80 mb-6">{project.description}</p>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
+                <p className="text-white/80 mb-4 leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech) => (
                     <Badge
                       key={tech}
-                      className="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs"
+                      variant="secondary"
+                      className="bg-primary/20 text-primary border-primary/30 text-xs font-medium"
                       data-testid={`badge-tech-${tech.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                     >
                       {tech}
@@ -72,10 +73,10 @@ export default function Projects() {
                   ))}
                 </div>
                 
-                <div className="flex gap-4">
+                <div className="flex gap-3">
                   <Button
                     asChild
-                    className="flex-1 bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg transition-all duration-300"
+                    className="flex-1 bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                     data-testid={`button-live-demo-${index}`}
                   >
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">

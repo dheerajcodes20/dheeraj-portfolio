@@ -63,19 +63,22 @@ export default function Skills() {
             return (
               <Card
                 key={category.title}
-                className="skill-card bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-all duration-300"
+                className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
                 data-testid={`card-skill-${index}`}
               >
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-6">
-                    <IconComponent className={`text-3xl ${category.color} mr-4`} />
-                    <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className={`p-3 rounded-xl ${category.bgColor} mr-4`}>
+                      <IconComponent className={`w-6 h-6 ${category.color}`} />
+                    </div>
+                    <h3 className="text-lg font-bold text-white">{category.title}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill) => (
                       <Badge
                         key={skill}
-                        className={`${category.bgColor} ${category.color} px-3 py-1 rounded-full text-sm font-medium`}
+                        variant="secondary"
+                        className="bg-white/10 text-white border-white/20 hover:bg-white/20 text-xs font-medium"
                         data-testid={`badge-skill-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                       >
                         {skill}

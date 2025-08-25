@@ -11,12 +11,15 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-sm border border-white/20 p-8 flex items-center justify-center">
-              <img
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800"
-                alt="Modern coding workspace with multiple monitors and clean setup"
-                className="rounded-xl shadow-2xl w-full h-full object-cover"
-                data-testid="img-workspace"
-              />
+              <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                    <span className="text-2xl font-bold text-white">DK</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">Full Stack Developer</h3>
+                  <p className="text-white/70">Passionate about innovation</p>
+                </div>
+              </div>
             </div>
           </div>
           

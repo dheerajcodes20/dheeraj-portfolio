@@ -63,17 +63,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Resume download endpoint
   app.get("/api/download-resume", (req: Request, res: Response) => {
     try {
-      // In a real application, you would serve the actual resume PDF
-      // For now, we'll create a simple response
-      const resumeData = {
-        message: "Resume download would be implemented here",
-        contact: "Please contact dheeraj2082dk@gmail.com for the latest resume",
-        timestamp: new Date().toISOString()
-      };
+      const resumePath = path.join(process.cwd(), "attached_assets", "DheerajKumar_FullStackDev_Resume_1756133073743.pdf");
       
-      res.setHeader('Content-Type', 'application/json');
-      res.setHeader('Content-Disposition', 'attachment; filename="DheerajKumar_Contact.json"');
-      res.send(JSON.stringify(resumeData, null, 2));
+      // Check if file exists
+      if (fs.existsSync(resumePath)) {
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename="DheerajKumar_FullStackDev_Resume.pdf"');
+        
+        // Stream the file
+        const fileStream = fs.createReadStream(resumePath);
+        fileStream.pipe(res);
+        
+        fileStream.on('error', (err) => {
+          console.error("File stream error:", err);
+          res.status(500).json({ 
+            message: "Error streaming resume file" 
+          });
+        });
+      } else {
+        // Fallback: provide contact information
+        res.status(404).json({
+          message: "Resume file not found. Please contact dheeraj2082dk@gmail.com for the latest resume.",
+          contact: "dheeraj2082dk@gmail.com",
+          phone: "+91 9640760915"
+        });
+      }
       
     } catch (error) {
       console.error("Resume download error:", error);
