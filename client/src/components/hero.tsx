@@ -1,8 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
-import profileImage from "@assets/mypic_1756133943930.jpeg";
+import { useState } from "react";
+import clsx from "clsx";
 
 export default function Hero() {
+  const [showModal, setShowModal] = useState(false);
+
+  // Compose mailto link for Gmail web compose (works for most users)
+  const gmailComposeUrl =
+    "https://mail.google.com/mail/?view=cm&fs=1&to=dheeraj2082dk@gmail.com&su=Contact%20from%20Portfolio&body=Hi%20Dheeraj,%20I%20would%20like%20to%20connect%20with%20you.";
+  // Fallback mailto for non-Gmail users
+  const mailtoUrl =
+    "mailto:dheeraj2082dk@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Dheeraj,%20I%20would%20like%20to%20connect%20with%20you.";
+  const handleMailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const win = window.open(gmailComposeUrl, "_blank");
+    setTimeout(() => {
+      if (!win || win.closed || typeof win.closed === "undefined") {
+        window.location.href = mailtoUrl;
+      }
+    }, 500);
+  };
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -30,9 +49,12 @@ export default function Hero() {
       
       <div className="max-w-6xl mx-auto text-center relative z-10">
         <div className="mb-8">
-          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-primary to-secondary p-1 mb-6">
+          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-primary to-secondary p-1 mb-6 cursor-pointer transition-transform duration-300 hover:scale-105"
+            onClick={() => setShowModal(true)}
+            data-testid="profile-image-container"
+          >
             <img
-              src={profileImage}
+              src="/mypic_1756133943930.jpeg"
               alt="Dheeraj Kumar - Full Stack Developer"
               className="w-full h-full rounded-full object-cover"
               data-testid="profile-image"
@@ -87,14 +109,41 @@ export default function Hero() {
             <Linkedin className="w-8 h-8" />
           </a>
           <a
-            href="mailto:dheeraj2082dk@gmail.com"
+            href={gmailComposeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-white/70 hover:text-white text-2xl transition-colors duration-300"
             data-testid="link-email"
+            onClick={handleMailClick}
           >
             <Mail className="w-8 h-8" />
           </a>
         </div>
       </div>
+      {/* Modal for enlarged profile photo */}
+      {showModal && (
+        <div
+          className="fixed top-20 left-0 w-full flex justify-center z-50 animate-fade-in-up"
+          style={{ pointerEvents: 'auto' }}
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className={clsx(
+              "bg-white/10 backdrop-blur-lg border-4 border-primary shadow-2xl flex items-center justify-center cursor-pointer transition-all duration-500",
+              "rounded-full",
+              "w-80 h-80 sm:w-[28rem] sm:h-[28rem]"
+            )}
+            style={{ marginTop: 0 }}
+          >
+            <img
+              src="/mypic_1756133943930.jpeg"
+              alt="Dheeraj Kumar - Full Stack Developer"
+              className="w-full h-full rounded-full object-cover"
+              data-testid="profile-image-modal"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

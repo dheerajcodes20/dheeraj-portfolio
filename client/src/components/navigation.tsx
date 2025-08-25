@@ -30,10 +30,10 @@ export default function Navigation() {
         <div className="flex justify-between items-center py-4">
           <button
             onClick={() => scrollToSection('home')}
-            className="text-xl font-bold text-white hover:text-secondary transition-colors duration-300"
+            className="text-2xl font-bold  text-primary hover:text-secondary transition-colors duration-300"
             data-testid="logo-home"
           >
-            Dheeraj<span className="text-secondary">Kumar</span>
+            Dheeraj<span className="text-white hover:text-secondary"> Kumar</span>
           </button>
           
           {/* Desktop Navigation */}

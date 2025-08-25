@@ -14,11 +14,11 @@ interface ContactFormData {
 // Email configuration
 const createEmailTransporter = () => {
   // Using Gmail SMTP - in production you'd use environment variables
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'dheeraj2082dk@gmail.com', // Your email
-      pass: process.env.EMAIL_APP_PASSWORD || 'your-app-password' // App password from Gmail
+      pass: process.env.EMAIL_APP_PASSWORD // App password from Gmail (set this in your environment)
     }
   });
 };
