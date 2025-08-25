@@ -44,16 +44,11 @@ export default function Projects() {
               <div className="aspect-video relative overflow-hidden">
                 <img
                   src={project.image}
-                  alt={`${project.title} - ${project.category} application interface`}
+                  alt={`${project.title} application interface`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   data-testid={`img-project-${index}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <Badge className="bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
-                    {project.category}
-                  </Badge>
-                </div>
               </div>
               
               <CardContent className="p-6">
