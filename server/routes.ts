@@ -1,7 +1,5 @@
 import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
-import path from "path";
-import fs from "fs";
 import nodemailer from "nodemailer";
 
 interface ContactFormData {
@@ -125,43 +123,12 @@ This message was sent from your portfolio website contact form.
     }
   });
 
-  // Resume download endpoint
-  app.get("/api/download-resume", (req: Request, res: Response) => {
-    try {
-      const resumePath = path.join(process.cwd(), "attached_assets", "DheerajKumar_FullStackDev_Resume_1756133073743.pdf");
-      
-      // Check if file exists
-      if (fs.existsSync(resumePath)) {
-        res.setHeader('Content-Type', 'application/pdf');
-        res.setHeader('Content-Disposition', 'attachment; filename="DheerajKumar_FullStackDev_Resume.pdf"');
-        
-        // Stream the file
-        const fileStream = fs.createReadStream(resumePath);
-        fileStream.pipe(res);
-        
-        fileStream.on('error', (err) => {
-          console.error("File stream error:", err);
-          res.status(500).json({ 
-            message: "Error streaming resume file" 
-          });
-        });
-      } else {
-        // Fallback: provide contact information
-        res.status(404).json({
-          message: "Resume file not found. Please contact dheeraj2082dk@gmail.com for the latest resume.",
-          contact: "dheeraj2082dk@gmail.com",
-          phone: "+91 9640760915"
-        });
-      }
-      
-    } catch (error) {
-      console.error("Resume download error:", error);
-      res.status(500).json({ 
-        message: "Sorry, there was an error downloading the resume. Please contact dheeraj2082dk@gmail.com directly." 
-      });
-    }
-  });
+  // REMOVE: /api/download-resume route (migrated to Vercel serverless function)
 
   const httpServer = createServer(app);
   return httpServer;
 }
+
+// Note: This file is now obsolete if all logic is migrated to serverless functions.
+// You may safely delete this file and the server directory if not using Express for anything else.
+// If you keep this, just return a dummy server for compatibility:
