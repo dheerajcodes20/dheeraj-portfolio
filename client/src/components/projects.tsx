@@ -9,7 +9,7 @@ export default function Projects() {
   const projects = [
     {
       title: "ASKly - AI Voice Q&A Platform",
-      description: "AI-powered interactive voice Q&A platform with 95% transcription accuracy using AssemblyAI and Amazon Polly. Features secure authentication, real-time responses, and personalized learning experiences.",
+      description: "Developed full-stack voice-interactive Q&A platform using Next.js 15.3, React 18, and Convex backend, enabling real-time AI conversations across 5 coaching modes. Integrated AssemblyAI for speech-to-text, OpenRouter for AI processing, and Amazon Polly via AWS SDK for text-to-speech conversion. Built RESTful API routes, implemented real-time data synchronization using Convex with React hooks (useQuery, useMutation), and created responsive UI with TailwindCSS v4. Deployed on Vercel with StackAuth authentication, Next.js middleware for protected routes, and React hooks (useState, useEffect, useMemo, useRef) for state management.",
       image: asklyImage,
       liveUrl: "https://askly-speak-learn-improve.vercel.app/",
       githubUrl: "https://github.com/dheerajcodes20/ASKly-Speak-Learn-Improve",
@@ -18,7 +18,7 @@ export default function Projects() {
     },
     {
       title: "NextBuy - E-Commerce Platform",
-      description: "Dynamic full-stack e-commerce site with server-side rendering, 40% faster load times. Integrated Stripe payments and Sanity CMS for real-time content management with 99.9% uptime.",
+      description: "Built full-stack e-commerce platform using Next.js 15 App Router with TypeScript, implementing server-side rendering for product pages and dynamic routing for categories and individual products. Integrated Sanity CMS with GROQ queries to fetch product data, images, and categories, enabling content managers to update inventory without code changes. Implemented Stripe payment processing with use-shopping-cart library, including checkout flow, success/error pages, and cart persistence across sessions. Developed responsive shopping cart modal using Radix UI Sheet component with real-time cart count updates, item removal, and seamless checkout redirection, deployed on Vercel.",
       image: nextbuyImage,
       liveUrl: "https://next-buy-e-commerce-website.vercel.app/",
       githubUrl: "https://github.com/dheerajcodes20/NextBuy-E-Commerce-Website",
