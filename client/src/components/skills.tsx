@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Palette, Server, Database, Cloud, Settings } from "lucide-react";
+import { Code, Palette, Server, Database, Cloud, Settings, GitBranch } from "lucide-react";
 
 export default function Skills() {
   const skillCategories = [
@@ -9,35 +9,35 @@ export default function Skills() {
       icon: Code,
       color: "text-primary",
       bgColor: "bg-primary/20",
-      skills: ["JavaScript", "TypeScript", "Python"]
+      skills: ["JavaScript", "TypeScript"]
     },
     {
       title: "Front-End",
       icon: Palette,
       color: "text-secondary",
       bgColor: "bg-secondary/20",
-      skills: ["React", "Next.js", "HTML5", "CSS3", "TailwindCSS", "Bootstrap", "Shadcn/UI"]
+      skills: ["React.js", "Next.js", "HTML5", "CSS3", "TailwindCSS", "Bootstrap", "Shadcn/UI", "Radix UI"]
     },
     {
       title: "Back-End",
       icon: Server,
       color: "text-emerald-400",
       bgColor: "bg-emerald-400/20",
-      skills: ["Node.js", "Express.js"]
+      skills: ["Node.js", "Express.js", "RESTful API Development"]
     },
     {
       title: "Databases",
       icon: Database,
       color: "text-yellow-400",
       bgColor: "bg-yellow-400/20",
-      skills: ["MySQL", "MongoDB"]
+      skills: ["MongoDB", "SQL (MySQL)", "Convex"]
     },
     {
       title: "Cloud/DevOps",
       icon: Cloud,
       color: "text-blue-400",
       bgColor: "bg-blue-400/20",
-      skills: ["Docker", "Git", "GitHub", "Vercel"]
+      skills: ["Docker", "Vercel"]
     },
     {
       title: "Tools & APIs",
@@ -45,6 +45,13 @@ export default function Skills() {
       color: "text-pink-400",
       bgColor: "bg-pink-400/20",
       skills: ["REST API", "Postman", "AssemblyAI", "Stripe", "Sanity CMS", "Amazon Polly", "StackAuth"]
+    },
+    {
+      title: "Version Control & Design",
+      icon: GitBranch,
+      color: "text-purple-400",
+      bgColor: "bg-purple-400/20",
+      skills: ["Git", "GitHub", "Responsive Design", "Mobile-First Development"]
     }
   ];
 

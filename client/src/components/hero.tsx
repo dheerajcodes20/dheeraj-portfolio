@@ -35,7 +35,7 @@ export default function Hero() {
   const downloadResume = () => {
     // Create a temporary link element to trigger download
     const link = document.createElement('a');
-    link.href = '/api/download-resume';
+    link.href = '/DheerajKumar_FullStackDev_Resume_1756133073743.pdf';
     link.download = 'DheerajKumar_FullStackDev_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -54,7 +54,7 @@ export default function Hero() {
             data-testid="profile-image-container"
           >
             <img
-              src="/mypic_1756133943930.jpeg"
+              src="/mypic_1756133943930.jpg"
               alt="Dheeraj Kumar - Full Stack Developer"
               className="w-full h-full rounded-full object-cover"
               data-testid="profile-image"
@@ -136,7 +136,7 @@ export default function Hero() {
             style={{ marginTop: 0 }}
           >
             <img
-              src="/mypic_1756133943930.jpeg"
+              src="/mypic_1756133943930.jpg"
               alt="Dheeraj Kumar - Full Stack Developer"
               className="w-full h-full rounded-full object-cover"
               data-testid="profile-image-modal"
